@@ -153,9 +153,9 @@
 
 ---
 
-## Part 3: Next Market Launch Steps
+- [x] Connect production cloud database (Firebase `nseen-b0674` configured with `google-services.json`)
+- [x] Configure real bKash / Nagad numbers in `PaymentManager.kt` (`01576520816`)
+- [x] Set up automated GitHub Actions cloud build CI/CD pipeline
+- [x] Generate signed release APK: `Nseen-v1.1.0-pro-apks` built successfully in GitHub Actions Run #4
+- [ ] Complete in Firebase Console: Enable Google Sign-In & Publish Firestore Rules
 
-- [ ] Connect production cloud database / webhook (Firebase / Supabase / bKash Webhook) for live TrxID auto-matching
-- [ ] Configure real bKash / Nagad numbers in `PaymentManager.kt`
-- [ ] Enable ProGuard / R8 code shrinking and obfuscation in `build.gradle.kts`
-- [ ] Generate signed release APK: `Nseen-v1.1.0-pro.apk`

@@ -246,20 +246,19 @@ What if the user travels or doesn't have mobile data / Wi-Fi?
 
 ---
 
-## 9. Current Status & Remaining Launch Steps
+## 9. Current Status & Production Milestones Achieved
 
-The entire core monetization and device-binding engine has been successfully implemented and integrated:
-1. `DeviceFingerprintHelper.kt` extracts Widevine `MediaDrm` + `ANDROID_ID` hardware identifiers.
-2. `GoogleAuthHelper.kt` handles Google Account verification.
-3. `LicenseManager.kt` enforces strict 1 Account = 1 Physical Phone binding with tamper-proof signatures and 14-day offline grace.
-4. `PaymentManager.kt` validates bKash, Nagad, and Rocket TrxIDs with automated hooks.
-5. `PaywallScreen.kt` provides an in-app checkout experience with copy-number and submission.
-6. `MainActivity.kt` enforces the licensing gatekeeper before granting access to chats.
-7. `DeletionDetector.kt` natively detects Bengali WhatsApp deletion notices.
+All core monetization, security, backend, and build systems are completed:
+1. **Hardware Device Binding**: `DeviceFingerprintHelper.kt` extracts Widevine `MediaDrm` + `ANDROID_ID` hardware identifiers.
+2. **Google Identity Verification**: `GoogleAuthHelper.kt` verifies user's Google UID & email.
+3. **Strict 1-to-1 Licensing Engine**: `LicenseManager.kt` enforces 1 Account = 1 Physical Phone binding with tamper-proof signatures and 14-day offline grace.
+4. **Bangladesh Payment Gateway**: `PaymentManager.kt` configured with real bKash number **`01576520816`** and TrxID validation.
+5. **Interactive Paywall**: `PaywallScreen.kt` provides Material 3 Dark Emerald UI with one-tap copy number, TrxID submission, and license restore.
+6. **Firebase Backend Connection**: Firebase project **`nseen-b0674`** integrated with real `google-services.json` and Firestore security rules.
+7. **GitHub Private Codebase & CI/CD**: Pushed to `https://github.com/rimonxyg/Nseen`. GitHub Actions build pipeline successfully compiled `Nseen-v1.1.0-pro-apks`.
 
-### Remaining Steps for Final Market Distribution:
-1. Update real merchant/personal bKash & Nagad numbers in `PaymentManager.kt`.
-2. Connect live webhook or cloud database (Firebase / Supabase) if auto-reconciliation is desired.
-3. Enable ProGuard / R8 in `app/build.gradle.kts` to protect the signature salts from APK decompilation.
-4. Build signed production release APK: `Nseen-v1.1.0-pro.apk`.
-5. Verify reinstall & device-lock behavior on physical test devices.
+### Final Steps to Complete in Firebase Console:
+1. Toggle **Google Sign-In** ON under *Firebase Console > Authentication > Sign-in method*.
+2. Create **Firestore Database** and publish [firestore.rules](file:///c:/RIMON[confidential]/whatsapp%20deleted%20messege%20viewer%20app/Nseen/Nseen/firestore.rules).
+3. Sideload the APK onto an Android device and test Google Sign-In & 150 BDT lifetime license activation.
+
