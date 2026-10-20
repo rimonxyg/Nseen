@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Nseen</string>
+    <string name="service_name">Nseen Notification Service</string>
+</resources>
