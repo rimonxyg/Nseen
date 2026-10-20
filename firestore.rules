@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 150 BDT Lifetime License records
+    match /licenses/{googleUid} {
+      // Allow reading license status
+      allow read: if true;
+      
+      // Allow creating or activating license
+      allow create, update: if request.resource.data.google_uid == googleUid;
+      
+      // Deletions are forbidden from client
+      allow delete: if false;
+    }
+  }
+}

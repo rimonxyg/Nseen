@@ -96,15 +96,23 @@
   - [x] Handles user sign-in, capturing verified Google email and unique Google UID
   - [x] Multi-account selection and switching
 
-### 2.2 Licensing Architecture & State Machine
+### 2.2 Licensing Architecture & Firebase Backend
 - [x] License Data Models (`LicenseModel.kt`):
   - [x] `LicenseInfo` (isLifetimeActive, googleUid, email, boundDeviceId, activatedAt, transactionId, paymentMethod, amountBdt = 150)
   - [x] `LicenseState` state machine (`Unauthenticated`, `Checking`, `Unlicensed`, `Active`, `DeviceMismatch`, `OfflineGrace`, `Error`)
+- [x] Firebase Cloud Integration (`FirebaseLicenseService.kt`):
+  - [x] Firebase BOM 33.8.0, Firebase Auth & Cloud Firestore setup
+  - [x] Google Play Services Auth (`play-services-auth:21.3.0`)
+  - [x] Cloud license document lookup (`licenses/{googleUid}`)
+  - [x] Cloud hardware device matching (restoration vs rejection)
+  - [x] `firestore.rules` security rules file
+  - [x] `app/google-services.json` configuration template
 - [x] State Controller (`LicenseManager.kt`):
   - [x] Cryptographic tamper-proof local signature verification (prevents editing SharedPreferences)
   - [x] Strict device binding validation (prevents sharing 1 license across multiple phones)
   - [x] 14-day offline grace period for users without continuous internet
   - [x] Automatic license restoration on reinstallation on the same phone
+  - [x] Real-time cloud sync with Firebase Firestore
 - [x] Dependency Container Injection (`AppContainer.kt`):
   - [x] Provides single `licenseManager` instance across ViewModels and Services
 

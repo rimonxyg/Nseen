@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.devtools.ksp")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -77,6 +78,15 @@ dependencies {
 
     // WorkManager (for auto-cleanup retention)
     implementation("androidx.work:work-runtime-ktx:2.10.0")
+
+    // Firebase BOM & Services
+    val firebaseBom = platform("com.google.firebase:firebase-bom:33.8.0")
+    implementation(firebaseBom)
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-firestore-ktx")
+
+    // Google Play Services Auth (Native Google Sign-In)
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
 
     // Test dependencies
     testImplementation("junit:junit:4.13.2")

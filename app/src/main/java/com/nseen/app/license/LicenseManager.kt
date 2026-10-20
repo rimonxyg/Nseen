@@ -165,6 +165,21 @@ class LicenseManager(private val context: Context) {
             signature = signature
         )
         _licenseState.value = LicenseState.Active(license)
+
+        // Asynchronously sync to Firebase Firestore
+        scope.launch {
+            try {
+                FirebaseLicenseService.saveLicense(
+                    googleUid = googleUid,
+                    email = email,
+                    boundDeviceId = currentDeviceId,
+                    transactionId = transactionId,
+                    paymentMethod = paymentMethod
+                )
+            } catch (_: Exception) {
+                // Non-fatal: local encrypted record is already active
+            }
+        }
     }
 
     /**
@@ -173,13 +188,32 @@ class LicenseManager(private val context: Context) {
     suspend fun restoreLicense(googleUid: String, email: String): Result<Boolean> {
         val currentDeviceId = DeviceFingerprintHelper.getDeviceId(context)
 
-        // Simulated cloud query:
-        // Checks cloud database for record matching (google_uid == googleUid)
-        // If found, checks if (record.boundDeviceId == currentDeviceId)
+        // Step 1: Query Firebase Cloud Firestore
+        val cloudResult = FirebaseLicenseService.fetchLicense(googleUid, currentDeviceId)
+        if (cloudResult.isSuccess && cloudResult.getOrNull() != null) {
+            val cloudLicense = cloudResult.getOrNull()!!
+            if (cloudLicense.boundDeviceId == currentDeviceId) {
+                activateLifetimeLicense(
+                    googleUid = googleUid,
+                    email = email,
+                    transactionId = cloudLicense.transactionId,
+                    paymentMethod = cloudLicense.paymentMethod
+                )
+                return Result.success(true)
+            } else {
+                _licenseState.value = LicenseState.DeviceMismatch(
+                    email = email,
+                    registeredDeviceId = cloudLicense.boundDeviceId,
+                    currentDeviceId = currentDeviceId
+                )
+                return Result.failure(Exception("এই লাইসেন্সটি অন্য ফোনে নিবন্ধিত রয়েছে। এক লাইসেন্স কেবল একটি ফোনেই প্রযোজ্য।"))
+            }
+        }
+
+        // Step 2: Fallback to local stored signature verification
         return try {
-            // Check if there is an existing local record or cloud record
             val boundDeviceId = prefs.getString(KEY_BOUND_DEVICE_ID, currentDeviceId) ?: currentDeviceId
-            if (boundDeviceId == currentDeviceId) {
+            if (boundDeviceId == currentDeviceId && prefs.getBoolean(KEY_IS_ACTIVE, false)) {
                 activateLifetimeLicense(
                     googleUid = googleUid,
                     email = email,
