@@ -157,5 +157,7 @@
 - [x] Configure real bKash / Nagad numbers in `PaymentManager.kt` (`01576520816`)
 - [x] Set up automated GitHub Actions cloud build CI/CD pipeline
 - [x] Generate signed release APK: `Nseen-v1.1.0-pro-apks` built successfully in GitHub Actions Run #4
+- [x] Create comprehensive, fully editable UAT specification document (`Nseen_v1.1.0_UAT_Test_Specification.docx`)
 - [ ] Complete in Firebase Console: Enable Google Sign-In & Publish Firestore Rules
+
 
