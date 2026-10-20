@@ -1,26 +1,21 @@
 {
   "project_info": {
-    "project_number": "123456789000",
-    "project_id": "nseen-app-bd",
-    "storage_bucket": "nseen-app-bd.appspot.com"
+    "project_number": "747037898337",
+    "project_id": "nseen-b0674",
+    "storage_bucket": "nseen-b0674.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123456789000:android:abcdef0123456789abcdef",
+        "mobilesdk_app_id": "1:747037898337:android:6b4c37500aeae90a0adc20",
         "android_client_info": {
           "package_name": "com.nseen.app"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "123456789000-abcdefghijklmnopqrstuvwxyz.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyFakeKeyForInitialBuildTemplatePlaceholder"
+          "current_key": "AIzaSyAGe9cMv9yc9uholaBuhLqdyG8RpFESHtY"
         }
       ],
       "services": {
