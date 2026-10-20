@@ -27,11 +27,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build APK with Gradle
-        run: ./gradlew assembleRelease --stacktrace
+        run: ./gradlew assembleDebug assembleRelease --stacktrace
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Nseen-v1.1.0-pro
-          path: app/build/outputs/apk/release/*.apk
+          name: Nseen-v1.1.0-pro-apks
+          path: app/build/outputs/apk/**/*.apk
           retention-days: 30
