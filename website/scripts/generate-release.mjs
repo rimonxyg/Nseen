@@ -11,8 +11,13 @@ const outJson = path.resolve(__dirname, '../src/data/release.json');
 const outSha = path.resolve(__dirname, '../public/downloads/Nseen-v1.2.1-pro.apk.sha256');
 
 if (!fs.existsSync(apkPath)) {
-  console.error(`Error: APK not found at ${apkPath}`);
-  process.exit(1);
+  if (fs.existsSync(outJson)) {
+    console.log(`ℹ APK file not found at ${apkPath}. Using existing metadata from ${outJson}`);
+    process.exit(0);
+  } else {
+    console.error(`Error: APK not found at ${apkPath} and no pre-existing release.json found.`);
+    process.exit(1);
+  }
 }
 
 const fileBuffer = fs.readFileSync(apkPath);
@@ -40,4 +45,3 @@ console.log(`✓ Release metadata generated successfully!`);
 console.log(`  Version: ${releaseData.version}`);
 console.log(`  SHA256:  ${sha256}`);
 console.log(`  Size:    ${(stats.size / (1024 * 1024)).toFixed(2)} MB`);
-

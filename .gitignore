@@ -29,3 +29,5 @@ local.properties
 
 # Binaries & APKs
 *.apk
+!website/public/downloads/Nseen-v1.2.1-pro.apk
+
