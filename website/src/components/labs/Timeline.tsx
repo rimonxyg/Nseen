@@ -44,3 +44,4 @@ export const Timeline: React.FC<{ lang: 'en' | 'bn' }> = ({ lang }) => {
     </div>
   );
 };
+

@@ -115,3 +115,4 @@ export const oemGuides: OemGuide[] = [
     troubleshootNote: 'If the app is put to sleep after several days of inactivity, make sure "Auto-Freeze" is disabled in Phone Master / Security center.'
   }
 ];
+

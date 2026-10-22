@@ -23,3 +23,4 @@ The build will automatically run `scripts/generate-release.mjs` and `scripts/gen
 2. Update the filename in `scripts/generate-release.mjs` if the version string changed.
 3. Run `pnpm build`.
 4. Deploy the output `dist/` directory to Firebase Hosting or Cloudflare Pages.
+

@@ -104,3 +104,4 @@ export const Hero: React.FC<{ lang: 'en' | 'bn' }> = ({ lang }) => {
     </section>
   );
 };
+

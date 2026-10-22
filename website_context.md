@@ -246,3 +246,4 @@ For `/downloads/*`:
 * Zero external network calls; fully self-contained.
 * 100% responsive down to 344px (foldable) and up to 2560px ultra-wide.
 * Works with JavaScript disabled for reading and downloading.
+

@@ -66,3 +66,4 @@ const qrSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" wid
 fs.mkdirSync(path.dirname(outSvg), { recursive: true });
 fs.writeFileSync(outSvg, qrSvg);
 console.log('✓ QR code SVG generated at public/qr-download.svg');
+

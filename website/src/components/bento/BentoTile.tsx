@@ -70,3 +70,4 @@ export const BentoTile: React.FC<BentoTileProps> = ({
     </div>
   );
 };
+

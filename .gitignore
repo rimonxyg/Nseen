@@ -1,13 +1,31 @@
+# Android Build & IDE
 *.iml
-.gradle
-/local.properties
-/.idea/
+.gradle/
+.idea/
 .DS_Store
-/build
-/app/build
+build/
+app/build/
 .kotlin/
 captures/
-.externalNativeBuild
+.externalNativeBuild/
 .cxx/
+
+# Confidential Credentials & Keys
+**/google-services.json
+!**/google-services.json.example
+*.keystore
+*.jks
+*.key
+*.pem
+*.p12
+local.properties
+/local.properties
+
+# Secrets & Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Binaries & APKs
 *.apk
-!Nseen-v1.2.0-pro.apk

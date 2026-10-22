@@ -37,3 +37,4 @@ export const SafetyNotice: React.FC<{ lang: 'en' | 'bn' }> = ({ lang }) => {
     </div>
   );
 };
+

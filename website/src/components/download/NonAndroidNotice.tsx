@@ -45,3 +45,4 @@ export const NonAndroidNotice: React.FC<{ lang: 'en' | 'bn'; osName: string }> =
     </div>
   );
 };
+

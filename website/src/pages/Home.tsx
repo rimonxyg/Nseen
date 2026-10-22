@@ -57,3 +57,4 @@ export const Home: React.FC<{ lang: 'en' | 'bn'; onToggleLang: () => void }> = (
     </main>
   );
 };
+

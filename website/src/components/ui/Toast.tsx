@@ -21,3 +21,4 @@ export const Toast: React.FC<ToastProps> = ({ message, isVisible }) => {
     </div>
   );
 };
+

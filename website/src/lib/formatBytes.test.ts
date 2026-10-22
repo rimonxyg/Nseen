@@ -14,3 +14,4 @@ describe('formatBytes', () => {
     expect(formatBytes(16790398)).toBe('16.01 MB');
   });
 });
+

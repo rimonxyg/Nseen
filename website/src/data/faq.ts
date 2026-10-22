@@ -36,3 +36,4 @@ export const faqs: FaqItem[] = [
     category: "troubleshooting"
   }
 ];
+

@@ -56,3 +56,4 @@ export const BentoGrid: React.FC<{ lang: 'en' | 'bn' }> = ({ lang }) => {
     </section>
   );
 };
+

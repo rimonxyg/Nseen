@@ -50,3 +50,4 @@ export const Terms: React.FC = () => {
     </main>
   );
 };
+

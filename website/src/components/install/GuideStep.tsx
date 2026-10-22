@@ -32,3 +32,4 @@ export const GuideStep: React.FC<GuideStepProps> = ({ step, title, body, badge }
     </div>
   );
 };
+

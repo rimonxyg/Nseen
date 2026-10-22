@@ -105,3 +105,4 @@ export const MessageSequence: React.FC = () => {
     </div>
   );
 };
+

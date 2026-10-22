@@ -15,3 +15,4 @@
 ### ADR 004: Dual-Language (English + Bengali) Architecture
 * **Decision**: Implemented native Bengali toggle with persistence in `localStorage` and auto-detection via `navigator.language`.
 * **Rationale**: Cater seamlessly to both tech-savvy English speakers and everyday Bengali MFS users in Bangladesh.
+

@@ -29,3 +29,4 @@ export function setSeo({
   }
   linkCanonical.setAttribute('href', canonical);
 }
+

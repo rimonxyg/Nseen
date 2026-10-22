@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
+import { ScrollToTop } from './components/ui/ScrollToTop';
 import { Home } from './pages/Home';
 import { Privacy } from './pages/Privacy';
 import { Terms } from './pages/Terms';
@@ -57,6 +58,9 @@ export function App() {
 
         {/* Global Footer */}
         <Footer lang={lang} />
+
+        {/* Sticky Move to Top Button */}
+        <ScrollToTop />
       </div>
     </BrowserRouter>
   );

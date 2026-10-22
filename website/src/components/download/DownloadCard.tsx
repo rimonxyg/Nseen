@@ -127,3 +127,4 @@ export const DownloadCard: React.FC<{ lang: 'en' | 'bn' }> = ({ lang }) => {
     </section>
   );
 };
+

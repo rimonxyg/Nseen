@@ -24,3 +24,4 @@ export const Pill: React.FC<PillProps> = ({
     </span>
   );
 };
+

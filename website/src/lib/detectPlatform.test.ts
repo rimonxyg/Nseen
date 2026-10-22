@@ -31,3 +31,4 @@ describe('detectPlatform', () => {
     expect(result.isInAppBrowser).toBe(true);
   });
 });
+

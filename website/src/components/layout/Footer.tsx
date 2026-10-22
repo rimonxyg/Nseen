@@ -58,3 +58,4 @@ export const Footer: React.FC<{ lang: 'en' | 'bn' }> = ({ lang }) => {
     </footer>
   );
 };
+

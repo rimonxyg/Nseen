@@ -40,3 +40,4 @@ console.log(`✓ Release metadata generated successfully!`);
 console.log(`  Version: ${releaseData.version}`);
 console.log(`  SHA256:  ${sha256}`);
 console.log(`  Size:    ${(stats.size / (1024 * 1024)).toFixed(2)} MB`);
+

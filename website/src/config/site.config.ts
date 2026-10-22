@@ -39,3 +39,4 @@ export const siteConfig: SiteConfig = {
     accountNumber: "Payment details provided inside the app",
   },
 };
+
